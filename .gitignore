@@ -1,3 +1,19 @@
-# TODO: ensure your GitHub MCP configuration file (which holds your personal
-# access token) is listed here so it is never committed.
-[PLACEHOLDER]
+# Secrets: never commit tokens or local credentials.
+#
+# The GitHub MCP config (.mcp.json) is committed on purpose: it holds no token,
+# only a reference to the GITHUB_PERSONAL_ACCESS_TOKEN environment variable,
+# which Claude Code expands at startup. Any file that holds a real token must
+# be listed below.
+
+# Environment files that may hold tokens
+.env
+.env.*
+!.env.example
+
+# Personal Claude Code settings and MCP configs with real credentials
+.claude/settings.local.json
+.mcp.local.json
+*.local.json
+
+# macOS
+.DS_Store
